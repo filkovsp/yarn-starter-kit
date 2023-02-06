@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "This is a starter kit for a Yarn monorepo app",
   "private": true,
+  "type": "module",
   "workspaces": ["client", "server"],
   "scripts": {
       "dev": "concurrently --kill-others-on-fail -n \"server,client\" \"cd server && npm run dev\" \"cd client && npm run start\"",

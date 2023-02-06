@@ -1,14 +1,13 @@
-const express = require("express");
-const cors = require("cors");
-const path = require("path");
-const port = 4000;
+import express from "express";
+import cors from "cors";
+import path from "path";
+import dummy from "./data/Dummy.js";
 
+const port = process.env.PORT || 4000;
 const server = express();
 
 server.use(express.json());
 server.use(cors());
-
-const dummy = require("./data/Dummy");
 
 server.get('/', (request, response) => {
   response.format({
@@ -36,7 +35,7 @@ server.get('/healthcheck', (request, response) => {
   
   const body = {
     message: "Hello!",
-    dummy: dummy
+    dummy: dummy()
   };
   
   response.status(200).send(body);
